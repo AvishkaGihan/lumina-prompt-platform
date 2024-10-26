@@ -135,3 +135,76 @@ body {
 .app {
   @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
 }
+
+/* Add these to your globals.css */
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
+.logo_text {
+  @apply max-sm:hidden font-orbitron font-bold text-lg tracking-wider;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.cyber_btn {
+  @apply rounded-sm border-2 py-1.5 px-5 text-center text-sm font-tech-mono flex items-center justify-center transition-all duration-300 relative overflow-hidden;
+  background: rgba(0, 255, 255, 0.05);
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.cyber_btn:hover {
+  background: var(--neon-blue);
+  color: var(--cyber-darker);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.outline_cyber_btn {
+  @apply rounded-sm border-2 py-1.5 px-5 text-center text-sm font-tech-mono flex items-center justify-center transition-all duration-300;
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 45, 85, 0.2);
+}
+
+.outline_cyber_btn:hover {
+  background: var(--neon-pink);
+  color: var(--cyber-darker);
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-sm min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  background: var(--cyber-darker);
+  border: 2px solid var(--neon-purple);
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
+}
+
+.dropdown_link {
+  @apply text-sm font-tech-mono font-medium transition-all duration-300;
+  color: var(--neon-purple);
+  text-shadow: 0 0 8px var(--neon-purple);
+}
+
+.dropdown_link:hover {
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+.profile_image {
+  @apply rounded-sm border-2 transition-all duration-300;
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+}
+
+.profile_image:hover {
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+}
