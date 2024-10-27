@@ -241,7 +241,7 @@ body {
 
 /* Typography */
 .head_text {
-  @apply mt-5 text-5xl font-orbitron font-extrabold leading-[1.15] sm:text-6xl text-center;
+  @apply mt-5 text-5xl font-orbitron font-extrabold leading-[1.15] sm:text-6xl;
   color: var(--neon-blue);
   text-shadow: 0 0 10px var(--neon-blue);
   animation: textGlow 4s infinite;
