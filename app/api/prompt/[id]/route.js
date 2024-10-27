@@ -43,3 +43,20 @@ export const PATCH = async (request, { params }) => {
     return new Response("Error Updating Prompt", { status: 500 });
   }
 };
+
+export const DELETE = async (request, { params }) => {
+  try {
+    await connectToDB();
+
+    // Await the params before using its properties
+    const { id } = await params;
+
+    // Find the prompt by ID and remove it
+    await Prompt.findByIdAndDelete(id);
+
+    return new Response("Prompt deleted successfully", { status: 200 });
+  } catch (error) {
+    console.log(error);
+    return new Response("Error deleting prompt", { status: 500 });
+  }
+};
