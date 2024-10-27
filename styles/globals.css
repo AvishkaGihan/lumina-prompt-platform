@@ -13,114 +13,36 @@
   --darker-bg: #050507;
 }
 
+/* Base Styles */
 body {
   background-color: var(--dark-bg);
   color: #fff;
   font-family: "Share Tech Mono", monospace;
 }
 
-.main {
-  width: 100vw;
-  min-height: 100vh;
-  position: fixed;
-  display: flex;
-  justify-content: center;
-  padding: 120px 24px 160px 24px;
-  pointer-events: none;
-  background-color: var(--darker-bg);
-}
-
-.main:before {
-  background: radial-gradient(
-    circle,
-    rgba(188, 19, 254, 0.1) 0%,
-    var(--darker-bg) 100%
-  );
-  position: absolute;
-  content: "";
-  z-index: 2;
-  width: 100%;
-  height: 100%;
-  top: 0;
-}
-
-.main:after {
-  content: "";
-  background-image: url("/assets/images/grid.svg");
-  z-index: 1;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  opacity: 0.2;
-  filter: drop-shadow(0 0 0.75rem var(--neon-blue));
-}
-
-.gradient {
-  height: fit-content;
-  z-index: 3;
-  width: 100%;
-  max-width: 640px;
-  background-image: radial-gradient(
-      at 27% 37%,
-      var(--neon-blue) 0px,
-      transparent 50%
-    ),
-    radial-gradient(at 97% 21%, var(--neon-purple) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, var(--neon-pink) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, var(--neon-blue) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, var(--neon-purple) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, var(--neon-pink) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, var(--neon-blue) 0px, transparent 50%);
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  filter: blur(100px) saturate(200%);
-  top: 80px;
-  opacity: 0.2;
-  animation: pulse 5s ease-in-out infinite;
-}
-
+/* Animation Keyframes */
 @keyframes pulse {
-  0% {
+  0%,
+  100% {
     opacity: 0.2;
   }
   50% {
     opacity: 0.3;
   }
-  100% {
-    opacity: 0.2;
-  }
-}
-
-.glitch-text {
-  text-shadow: 0.05em 0 0 var(--neon-pink), -0.025em -0.05em 0 var(--neon-blue),
-    0.025em 0.05em 0 var(--neon-purple);
-  animation: glitch 750ms infinite;
 }
 
 @keyframes glitch {
-  0% {
-    text-shadow: 0.05em 0 0 var(--neon-pink),
-      -0.05em -0.025em 0 var(--neon-blue), -0.025em 0.05em 0 var(--neon-purple);
-  }
+  0%,
   14% {
     text-shadow: 0.05em 0 0 var(--neon-pink),
       -0.05em -0.025em 0 var(--neon-blue), -0.025em 0.05em 0 var(--neon-purple);
   }
-  15% {
-    text-shadow: -0.05em -0.025em 0 var(--neon-pink),
-      0.025em 0.025em 0 var(--neon-blue), -0.05em -0.05em 0 var(--neon-purple);
-  }
+  15%,
   49% {
     text-shadow: -0.05em -0.025em 0 var(--neon-pink),
       0.025em 0.025em 0 var(--neon-blue), -0.05em -0.05em 0 var(--neon-purple);
   }
-  50% {
-    text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
-      0 -0.05em 0 var(--neon-purple);
-  }
+  50%,
   99% {
     text-shadow: 0.025em 0.05em 0 var(--neon-pink), 0.05em 0 0 var(--neon-blue),
       0 -0.05em 0 var(--neon-purple);
@@ -132,147 +54,6 @@ body {
   }
 }
 
-.app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
-}
-
-/* Add these to your globals.css */
-
-.flex-between {
-  @apply flex justify-between items-center;
-}
-
-.flex-center {
-  @apply flex justify-center items-center;
-}
-
-.logo_text {
-  @apply max-sm:hidden font-orbitron font-bold text-lg tracking-wider;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue);
-}
-
-.cyber_btn {
-  @apply rounded-sm border-2 py-1.5 px-5 text-center text-sm font-tech-mono flex items-center justify-center transition-all duration-300 relative overflow-hidden;
-  background: rgba(0, 255, 255, 0.05);
-  border-color: var(--neon-blue);
-  color: var(--neon-blue);
-  text-shadow: 0 0 8px var(--neon-blue);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-}
-
-.cyber_btn:hover {
-  background: var(--neon-blue);
-  color: var(--cyber-darker);
-  box-shadow: 0 0 20px var(--neon-blue);
-}
-
-.outline_cyber_btn {
-  @apply rounded-sm border-2 py-1.5 px-5 text-center text-sm font-tech-mono flex items-center justify-center transition-all duration-300;
-  border-color: var(--neon-pink);
-  color: var(--neon-pink);
-  text-shadow: 0 0 8px var(--neon-pink);
-  box-shadow: 0 0 10px rgba(255, 45, 85, 0.2);
-}
-
-.outline_cyber_btn:hover {
-  background: var(--neon-pink);
-  color: var(--cyber-darker);
-  box-shadow: 0 0 20px var(--neon-pink);
-}
-
-.dropdown {
-  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-sm min-w-[210px] flex flex-col gap-2 justify-end items-end;
-  background: var(--cyber-darker);
-  border: 2px solid var(--neon-purple);
-  box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
-}
-
-.dropdown_link {
-  @apply text-sm font-tech-mono font-medium transition-all duration-300;
-  color: var(--neon-purple);
-  text-shadow: 0 0 8px var(--neon-purple);
-}
-
-.dropdown_link:hover {
-  color: var(--neon-blue);
-  text-shadow: 0 0 8px var(--neon-blue);
-}
-
-.profile_image {
-  @apply rounded-sm border-2 transition-all duration-300;
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
-}
-
-.profile_image:hover {
-  box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
-}
-
-/* Add these styles to your globals.css */
-.flex-start {
-  @apply flex justify-start items-start;
-}
-
-.head_text {
-  @apply mt-5 text-5xl font-orbitron font-extrabold leading-[1.15] sm:text-6xl;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue);
-}
-
-.neon_gradient {
-  @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
-  text-shadow: 0 0 10px var(--neon-blue);
-}
-
-.desc {
-  @apply mt-5 text-lg sm:text-xl max-w-2xl font-tech-mono;
-  color: var(--neon-purple);
-  text-shadow: 0 0 5px var(--neon-purple);
-}
-
-.cyber_glassmorphism {
-  @apply rounded-sm border-2 backdrop-blur p-5 relative;
-  background: rgba(10, 10, 15, 0.8);
-  border-color: var(--neon-pink);
-  box-shadow: 0 0 20px rgba(255, 45, 85, 0.2);
-}
-
-.cyber_glassmorphism::before {
-  content: "";
-  @apply absolute inset-0 pointer-events-none;
-  background: linear-gradient(
-    45deg,
-    rgba(0, 255, 255, 0.1),
-    rgba(188, 19, 254, 0.1),
-    rgba(255, 45, 85, 0.1)
-  );
-  filter: blur(5px);
-}
-
-.cyber_input {
-  @apply w-full flex rounded-sm mt-2 p-3 text-sm font-tech-mono transition-all duration-300 bg-cyber-darker border-2;
-  border-color: var(--neon-blue);
-  color: var(--neon-blue);
-  text-shadow: 0 0 5px var(--neon-blue);
-  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
-}
-
-.cyber_input:focus {
-  border-color: var(--neon-purple);
-  box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
-  outline: none;
-}
-
-.cyber_textarea {
-  @apply cyber_input h-[200px] resize-none;
-}
-
-.flex-end {
-  @apply flex justify-end items-center;
-}
-
-/* Add these styles to your globals.css */
 @keyframes scanline {
   0% {
     transform: translateY(-100%);
@@ -315,20 +96,173 @@ body {
   }
 }
 
+@keyframes textGlow {
+  0%,
+  100% {
+    text-shadow: 0 0 10px var(--neon-blue), 0 0 20px var(--neon-blue),
+      0 0 30px var(--neon-blue);
+  }
+  50% {
+    text-shadow: 0 0 15px var(--neon-purple), 0 0 25px var(--neon-purple),
+      0 0 35px var(--neon-purple);
+  }
+}
+
+@keyframes pulseBackground {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes dots {
+  0%,
+  20% {
+    content: "";
+  }
+  40% {
+    content: ".";
+  }
+  60% {
+    content: "..";
+  }
+  80%,
+  100% {
+    content: "...";
+  }
+}
+
+/* Layout Classes */
+.app {
+  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.flex-center {
+  @apply flex justify-center items-center;
+}
+
 .flex-start {
   @apply flex justify-start items-start;
 }
 
-.head_text {
-  @apply mt-5 text-5xl font-orbitron font-extrabold leading-[1.15] sm:text-6xl;
-  color: var(--neon-blue);
-  text-shadow: 0 0 10px var(--neon-blue);
-  animation: flicker 3s infinite;
+.flex-end {
+  @apply flex justify-end items-center;
 }
 
-.neon_gradient {
-  @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent;
+/* Main Container Styles */
+.main {
+  width: 100vw;
+  min-height: 100vh;
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  padding: 120px 24px 160px 24px;
+  pointer-events: none;
+  background-color: var(--darker-bg);
+}
+
+.main:before {
+  background: radial-gradient(
+    circle,
+    rgba(188, 19, 254, 0.1) 0%,
+    var(--darker-bg) 100%
+  );
+  position: absolute;
+  content: "";
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  top: 0;
+}
+
+.main:after {
+  content: "";
+  background-image: url("/assets/images/grid.svg");
+  z-index: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  opacity: 0.2;
+  filter: drop-shadow(0 0 0.75rem var(--neon-blue));
+}
+
+/* Gradient Effects */
+.gradient {
+  height: fit-content;
+  z-index: 3;
+  width: 100%;
+  max-width: 640px;
+  background-image: radial-gradient(
+      at 27% 37%,
+      var(--neon-blue) 0px,
+      transparent 50%
+    ),
+    radial-gradient(at 97% 21%, var(--neon-purple) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, var(--neon-pink) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, var(--neon-blue) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, var(--neon-purple) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, var(--neon-pink) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, var(--neon-blue) 0px, transparent 50%);
+  position: absolute;
+  content: "";
+  width: 100%;
+  height: 100%;
+  filter: blur(100px) saturate(200%);
+  top: 80px;
+  opacity: 0.2;
+  animation: pulse 5s ease-in-out infinite;
+}
+
+/* Typography */
+.head_text {
+  @apply mt-5 text-5xl font-orbitron font-extrabold leading-[1.15] sm:text-6xl text-center;
+  color: var(--neon-blue);
   text-shadow: 0 0 10px var(--neon-blue);
+  animation: textGlow 4s infinite;
+}
+
+.logo_text {
+  @apply max-sm:hidden font-orbitron font-bold text-lg tracking-wider;
+  color: var(--neon-blue);
+  text-shadow: 0 0 10px var(--neon-blue);
+}
+
+.glitch-text {
+  text-shadow: 0.05em 0 0 var(--neon-pink), -0.025em -0.05em 0 var(--neon-blue),
+    0.025em 0.05em 0 var(--neon-purple);
+  animation: glitch 750ms infinite;
+}
+
+.cyber_gradient {
+  @apply bg-gradient-to-r from-neon-blue via-neon-purple to-neon-pink bg-clip-text text-transparent bg-[length:200%_auto];
+  text-shadow: 0 0 10px var(--neon-purple);
+  animation: pulseBackground 5s ease-in-out infinite;
 }
 
 .desc {
@@ -336,9 +270,40 @@ body {
   color: var(--neon-purple);
   text-shadow: 0 0 5px var(--neon-purple);
   opacity: 0;
-  animation: fadeIn 1s ease-out forwards 0.5s;
+  animation: fadeIn 1s ease-out forwards;
 }
 
+/* Button Styles */
+.cyber_btn {
+  @apply rounded-sm border-2 py-1.5 px-5 text-center text-sm font-tech-mono flex items-center justify-center transition-all duration-300 relative overflow-hidden;
+  background: rgba(0, 255, 255, 0.05);
+  border-color: var(--neon-blue);
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.cyber_btn:hover {
+  background: var(--neon-blue);
+  color: var(--darker-bg);
+  box-shadow: 0 0 20px var(--neon-blue);
+}
+
+.outline_cyber_btn {
+  @apply rounded-sm border-2 py-1.5 px-5 text-center text-sm font-tech-mono flex items-center justify-center transition-all duration-300;
+  border-color: var(--neon-pink);
+  color: var(--neon-pink);
+  text-shadow: 0 0 8px var(--neon-pink);
+  box-shadow: 0 0 10px rgba(255, 45, 85, 0.2);
+}
+
+.outline_cyber_btn:hover {
+  background: var(--neon-pink);
+  color: var(--darker-bg);
+  box-shadow: 0 0 20px var(--neon-pink);
+}
+
+/* Form Elements */
 .cyber_glassmorphism {
   @apply rounded-sm border-2 backdrop-blur p-5 relative overflow-hidden;
   background: rgba(10, 10, 15, 0.8);
@@ -394,6 +359,7 @@ body {
   @apply cyber_input h-[200px] resize-none;
 }
 
+/* Form Labels and Info */
 .form_label {
   @apply font-tech-mono font-semibold text-base relative inline-block;
   color: var(--neon-pink);
@@ -426,41 +392,157 @@ body {
   transform: translateY(0);
 }
 
-@keyframes slideUp {
-  to {
-    transform: translateY(0);
-    opacity: 1;
-  }
+/* Dropdown Styles */
+.dropdown {
+  @apply absolute right-0 top-full mt-3 w-full p-5 rounded-sm min-w-[210px] flex flex-col gap-2 justify-end items-end;
+  background: var(--darker-bg);
+  border: 2px solid var(--neon-purple);
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.2);
 }
 
-@keyframes fadeIn {
-  to {
-    opacity: 1;
-  }
+.dropdown_link {
+  @apply text-sm font-tech-mono font-medium transition-all duration-300;
+  color: var(--neon-purple);
+  text-shadow: 0 0 8px var(--neon-purple);
 }
 
+.dropdown_link:hover {
+  color: var(--neon-blue);
+  text-shadow: 0 0 8px var(--neon-blue);
+}
+
+/* Profile Image */
+.profile_image {
+  @apply rounded-sm border-2 transition-all duration-300;
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 10px rgba(188, 19, 254, 0.2);
+}
+
+.profile_image:hover {
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.4);
+}
+
+/* Loading Animation */
 .loading_dots::after {
   content: "...";
   animation: dots 1.5s steps(4, end) infinite;
 }
 
-@keyframes dots {
-  0%,
-  20% {
-    content: "";
+/* Home Container */
+.home_container {
+  @apply relative z-10;
+}
+
+.home_container::before {
+  content: "";
+  @apply absolute inset-0 -z-10 opacity-20;
+  background: linear-gradient(45deg, var(--neon-blue) 0%, transparent 40%),
+    linear-gradient(-45deg, var(--neon-pink) 0%, transparent 40%);
+  filter: blur(60px);
+}
+
+/* Media Queries */
+@media screen and (max-width: 640px) {
+  .main {
+    padding: 0;
   }
-  40% {
-    content: ".";
-  }
-  60% {
-    content: "..";
-  }
-  80%,
-  100% {
-    content: "...";
+
+  .home_container::before {
+    opacity: 0.15;
   }
 }
 
-.flex-end {
-  @apply flex justify-end items-center;
+/* Feed and Search Styles */
+.feed {
+  @apply mt-16 mx-auto w-full max-w-xl flex justify-center items-center flex-col gap-2;
+}
+
+.search_input {
+  @apply block w-full py-2.5 pl-5 pr-12 text-sm font-tech-mono transition-all duration-300;
+  background: rgba(10, 10, 15, 0.8);
+  border: 2px solid var(--neon-blue);
+  color: var(--neon-blue);
+  text-shadow: 0 0 5px var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.2);
+}
+
+.search_input:focus {
+  border-color: var(--neon-purple);
+  box-shadow: 0 0 20px rgba(188, 19, 254, 0.3);
+  outline: none;
+  transform: scale(1.02);
+}
+
+.search_input::placeholder {
+  color: rgba(0, 255, 255, 0.5);
+}
+
+.prompt_layout {
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+}
+
+/* Prompt Card Styles */
+.prompt_card {
+  @apply flex-1 break-inside-avoid p-6 pb-4 backdrop-blur-lg md:w-[360px] w-full h-fit relative;
+  background: rgba(10, 10, 15, 0.8);
+  border: 2px solid var(--neon-pink);
+  box-shadow: 0 0 20px rgba(255, 45, 85, 0.1);
+  transition: all 0.3s ease;
+}
+
+.prompt_card::before {
+  content: "";
+  @apply absolute inset-0 pointer-events-none;
+  background: linear-gradient(
+    45deg,
+    rgba(0, 255, 255, 0.1),
+    rgba(188, 19, 254, 0.1),
+    rgba(255, 45, 85, 0.1)
+  );
+  filter: blur(5px);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.prompt_card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 0 30px rgba(255, 45, 85, 0.2);
+}
+
+.prompt_card:hover::before {
+  opacity: 1;
+}
+
+.copy_btn {
+  @apply w-8 h-8 rounded-sm flex justify-center items-center cursor-pointer transition-all duration-300;
+  background: rgba(0, 255, 255, 0.1);
+  border: 1px solid var(--neon-blue);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0.1);
+}
+
+.copy_btn:hover {
+  background: var(--neon-blue);
+  box-shadow: 0 0 15px rgba(0, 255, 255, 0.3);
+}
+
+.copy_btn img {
+  filter: invert(1) drop-shadow(0 0 2px var(--neon-blue));
+}
+
+/* Gradient Text Styles */
+.cyber_blue_gradient {
+  @apply bg-gradient-to-r from-neon-blue to-neon-purple bg-clip-text text-transparent;
+  text-shadow: 0 0 5px var(--neon-blue);
+}
+
+.cyber_green_gradient {
+  background: linear-gradient(to right, #00ff9d, #00ffcc);
+  @apply bg-clip-text text-transparent;
+  text-shadow: 0 0 5px #00ff9d;
+}
+
+.cyber_red_gradient {
+  background: linear-gradient(to right, #ff2d55, #ff0000);
+  @apply bg-clip-text text-transparent;
+  text-shadow: 0 0 5px #ff2d55;
 }

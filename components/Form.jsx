@@ -22,7 +22,7 @@ const Form = ({ type, post, setPost, submitting, handleSubmit }) => {
       <h1 className="head_text text-left">
         <span className="neon_gradient">{type} Post</span>
       </h1>
-      <p className="desc text-left max-w-md">
+      <p className="desc text-left! max-w-md">
         {type} to share your amazing prompts with the world and unleash your
         creativity on any AI-powered platform.
       </p>
