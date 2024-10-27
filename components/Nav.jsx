@@ -19,14 +19,14 @@ const Nav = () => {
 
   return (
     <nav className="flex-between w-full mb-16 pt-3">
-      <Link href="/" className="flex gap-2 flex-center group">
+      <Link href="/" className="flex gap-[2px] flex-center group">
         <div className="relative">
           <Image
             src="/assets/images/logo.svg"
             alt="logo"
             width={30}
             height={30}
-            className="object-contain transition-all duration-300 group-hover:scale-110"
+            className="object-contain transition-all duration-300 group-hover:scale-110 mt-2"
           />
           <div className="absolute inset-0 bg-neon-blue opacity-0 group-hover:opacity-50 blur-lg transition-opacity duration-300"></div>
         </div>
